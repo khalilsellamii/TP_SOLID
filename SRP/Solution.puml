@@ -1,0 +1,29 @@
+@startuml
+class Car {
+  - Uid: String
+  - car_ref: String
+  - car_brand: String
+
+  + Car(uid: String, ref: String, brand: String)
+  + getId(): String
+  + getRef(): String
+  + getBrand(): String
+}
+
+class CarManager {
+  - cars: List<Car>
+
+  + addCar(car: Car): void
+  + getCars(): List<Car>
+}
+
+class CarSources {
+  - carManager: CarManager
+
+  + getCarNames(): List<String>
+}
+
+
+CarManager --|> Car
+CarSources --|> CarManager
+@enduml

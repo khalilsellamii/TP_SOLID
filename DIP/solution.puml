@@ -1,0 +1,31 @@
+@startuml ex
+
+interface Storage{
+  + read (): string
+  + write(inputString: String): int
+}
+
+class EncodingModule {
+  - FileStorage : Storage
+  - NetworkStorage : Storage
+  + encodeWithFiles()
+  + encodeBasedOnNetworkAndDatabase()
+}
+
+class EncodingModuleClient {
+  + main(args: String[])
+}
+
+class FileData implements Storage {
+  + read (): string
+  + write(inputString: String): int
+}
+class NetworkData implements Storage {
+  + read (): string
+  + write(inputString: String): int
+}
+
+EncodingModuleClient --> EncodingModule
+EncodingModule --> Storage
+
+@enduml

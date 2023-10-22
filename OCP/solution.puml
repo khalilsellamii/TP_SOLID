@@ -1,0 +1,27 @@
+@startuml
+class ResourceAllocator {
+  - Ressources : List <resssource>
+  - markSpaceSlotBusy(resourceId: int): void
+  + AllocateRessource(resourceType: ResourceType): int
+  + FreeRessource(resourceType: ResourceType, resourceId: int): void
+}
+
+interface Resource {
+  + Ressource_id : String
+  + FreeRessource(): void
+  + AllocateRessource(): void
+  + FindFreeResource(): Resource
+}
+
+class Time implements Resource {
+  + FreeRessource(): void
+  + AllocateRessource(): void
+  + FindFreeResource(): Resource
+}
+
+class Slot implements Resource {
+  + FreeRessource(): void
+  + AllocateRessource(): void
+  + FindFreeResource(): Resource
+}
+@enduml
